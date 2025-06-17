@@ -61,4 +61,4 @@ MIT
 
 ---
 
-> Made with ❤️ by [Trung Huy Marketing] & Cộng đồng Dev Việt Nam 
+> Made with ❤️ by [ baodaidev ] & Cộng đồng Dev Việt Nam 
