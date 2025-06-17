@@ -47,4 +47,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial. 
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+## 📸 Ảnh minh họa (demo)
+- Ảnh banner, dự án, đối tác, team... đặt tại `/public` hoặc dùng link ngoài.
+
+## 📝 Đóng góp & phát triển
+- Fork, tạo branch mới, pull request để đóng góp.
+- Mọi ý kiến, góp ý UI/UX, code, tính năng mới đều được hoan nghênh!
+
+## 📄 License
+MIT
+
+---
+
+> Made with ❤️ by [Trung Huy Marketing] & Cộng đồng Dev Việt Nam 
