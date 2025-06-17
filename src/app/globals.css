@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-center mb-8;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-6;
+  }
+}
+
+/* Custom styles */
+.header-link {
+  @apply text-gray-600 hover:text-blue-600 transition-colors;
+}
+
+.service-card {
+  @apply bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow;
+}
+
+.project-card {
+  @apply bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow;
+}
+
+.footer-link {
+  @apply text-gray-400 hover:text-white transition-colors;
+} 
