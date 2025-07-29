@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import type { PanInfo } from 'framer-motion';
 
 const newsData = [
   {
@@ -65,7 +67,7 @@ export default function NewsUpdates() {
 
   return (
     <section className="w-full py-16 bg-gradient-to-b from-white to-red-50 relative">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-pink-500 drop-shadow-lg tracking-tight uppercase">
+      <h2 className="text-3xl md:text-5xl font-bold font-sans text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-pink-500 leading-[1.6] min-h-[90px] px-2 w-full py-6">
         TIN MỚI CẬP NHẬT
       </h2>
       <div className="flex justify-center items-center gap-4 md:gap-8 relative">
@@ -74,13 +76,20 @@ export default function NewsUpdates() {
           <NewsCard item={newsData[getIndex(-1)]} active={false} />
         </div>
         {/* Center card */}
-        <div
+        <motion.div
           className="z-10"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+            if (info.offset.x < -80) nextSlide();
+            else if (info.offset.x > 80) prevSlide();
+          }}
+          whileTap={{ scale: 0.97 }}
         >
-          <NewsCard item={newsData[current]} active={true} prevSlide={prevSlide} nextSlide={nextSlide} />
-        </div>
+          <NewsCard item={newsData[current]} active={true} />
+        </motion.div>
         {/* Right card */}
         <div className="hidden md:block opacity-40 scale-90 blur-sm pointer-events-none transition-all duration-500">
           <NewsCard item={newsData[getIndex(1)]} active={false} />
@@ -122,24 +131,7 @@ function NewsCard({ item, active, prevSlide, nextSlide }: NewsCardProps) {
           {item.title}
         </div>
       </div>
-      {active && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-200 rounded-full p-2 shadow-lg hover:bg-red-100 hover:text-red-600 transition-all duration-200 text-2xl"
-            aria-label="Previous"
-          >
-            &#8592;
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-200 rounded-full p-2 shadow-lg hover:bg-red-100 hover:text-red-600 transition-all duration-200 text-2xl"
-            aria-label="Next"
-          >
-            &#8594;
-          </button>
-        </>
-      )}
+      {active && null}
     </div>
   );
 } 

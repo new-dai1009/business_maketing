@@ -36,11 +36,8 @@ const Testimonials = () => {
     <section className="py-20 bg-gradient-to-b from-pink-50 via-white to-blue-50">
       <div className="container mx-auto max-w-6xl px-4">
         <h2
-          className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-pink-500 tracking-tight uppercase"
-          style={{
-            letterSpacing: '0.04em',
-            fontWeight: 900
-          }}
+          className="text-3xl md:text-5xl font-bold font-sans text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-pink-500 leading-[1.6] min-h-[90px] px-2 w-full py-6"
+          style={{ letterSpacing: '0.04em', fontWeight: 900 }}
         >
           KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI
         </h2>

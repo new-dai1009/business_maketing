@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Services = () => {
   const services = [
@@ -110,25 +111,26 @@ const Services = () => {
           className="md:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-8"
         >
           {services.map((service, idx) => (
-            <motion.div
-              key={service.id}
-              variants={itemVariants}
-              whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(0, 68, 255, 0.10)' }}
-              className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-3 border border-transparent hover:border-blue-200 group transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-3xl font-bold text-blue-500">{String(idx+1).padStart(2, '0')}</span>
-                <span className="text-lg font-bold text-gray-800 group-hover:text-blue-700 transition-all">{service.title}</span>
-              </div>
-              <ul className="divide-y divide-gray-100">
-                {service.items.map((item, index) => (
-                  <li key={index} className="flex items-center justify-between py-2 text-gray-700 group-hover:text-blue-700 transition-all">
-                    <span>{item}</span>
-                    <span className="text-xl text-blue-300 group-hover:text-blue-600 transition-all">→</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <Link href={`/services/${service.title.toLowerCase().replace(/\s|-/g, '-')}`} key={service.id} passHref legacyBehavior>
+              <motion.a
+                variants={itemVariants}
+                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(0, 68, 255, 0.10)' }}
+                className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-3 border border-transparent hover:border-blue-200 group transition-all duration-300 cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-3xl font-bold text-blue-500">{String(idx+1).padStart(2, '0')}</span>
+                  <span className="text-lg font-bold text-gray-800 group-hover:text-blue-700 transition-all">{service.title}</span>
+                </div>
+                <ul className="divide-y divide-gray-100">
+                  {service.items.map((item, index) => (
+                    <li key={index} className="flex items-center justify-between py-2 text-gray-700 group-hover:text-blue-700 transition-all">
+                      <span>{item}</span>
+                      <span className="text-xl text-blue-300 group-hover:text-blue-600 transition-all">→</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.a>
+            </Link>
           ))}
         </motion.div>
       </div>
